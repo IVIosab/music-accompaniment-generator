@@ -1,10 +1,9 @@
-**Mosab Mohamed – B20-04 – AI Assignment #2 Report**
-
-**Task:**
+## Task:
 - Given a monophonic midi file of a melody. Generate an accompaniment for the melody by using an evolutionary algorithm.
 - The accompaniment should be represented by a sequence of chords, each chord should contain three notes.
 
-**Solution details:**
+
+## Solution details:
 - We set a fixed length of the chords, so we can have a smaller search space.
   - The fixed length of each chord in the individual is one quarter.
 - We have the following representation:
@@ -24,10 +23,12 @@
   - We have a relatively high mutation probability which is 5% for each chord in the individual.
   - We mutate by replacing a chord in the individual with an entirely new random chord.
 
-**Algorithm Description:**
+
+## Algorithm Description:
 - The program takes an input midi file (\*.mid) that consists of melody and applies genetic programming(evolutionary algorithm) to generate an accompaniment consisting of several three note chords(triads) that would sound pleasing while played with the input melody.
 
-**Dependencies:**
+
+## Dependencies:
 - Python 3.8
 - Python library [mido](https://github.com/mido/mido)
   - Used to parse the input midi file to readable values of notes and times.
@@ -37,7 +38,8 @@
 - Python library [numpy](https://github.com/numpy/numpy) and [random](https://docs.python.org/3/library/random.html)
   - Used to help us execute various random operations.
 
-**Genetic algorithm components:**
+
+## Genetic algorithm components:
 - **Representation:**
   - The **population** is represented as a list of possible **individuals** (accompaniments).
   - Each **individual** is a list of N **chords** , the individual represents a possible solution to the problem.
@@ -52,6 +54,7 @@
   - Each **note** is an integer number that represents the midi value of a specific note.
   - Each **chord** object is played for one quarter duration which equals 384 in the mido library time units.
 
+
 - **Fitness function:**
   - The fitness value of an individual depends on three aspects:
     - The similarity of each chord in the individual to the average note played in the same quarter of the original melody in a lower octave.
@@ -65,6 +68,7 @@
     - The similarity of each chord in the individual to the previous two chords in the individual. Where we:
       - Punish the individual for having more than two consecutive chords that are the same.
       - Reward the individual for having exactly two consecutive chords that are the same.
+
 
 - **Selection technique:**
   - **Selection method:** Tournament.
