@@ -1,12 +1,10 @@
 **Mosab Mohamed – B20-04 – AI Assignment #2 Report**
 
 **Task:**
-
 - Given a monophonic midi file of a melody. Generate an accompaniment for the melody by using an evolutionary algorithm.
 - The accompaniment should be represented by a sequence of chords, each chord should contain three notes.
 
 **Solution details:**
-
 - We set a fixed length of the chords, so we can have a smaller search space.
   - The fixed length of each chord in the individual is one quarter.
 - We have the following representation:
@@ -27,11 +25,9 @@
   - We mutate by replacing a chord in the individual with an entirely new random chord.
 
 **Algorithm Description:**
-
 - The program takes an input midi file (\*.mid) that consists of melody and applies genetic programming(evolutionary algorithm) to generate an accompaniment consisting of several three note chords(triads) that would sound pleasing while played with the input melody.
 
-**Dependencies**
-
+**Dependencies:**
 - Python 3.8
 - Python library [mido](https://github.com/mido/mido)
   - Used to parse the input midi file to readable values of notes and times.
@@ -42,7 +38,6 @@
   - Used to help us execute various random operations.
 
 **Genetic algorithm components:**
-
 - **Representation:**
   - The **population** is represented as a list of possible **individuals** (accompaniments).
   - Each **individual** is a list of N **chords** , the individual represents a possible solution to the problem.
@@ -70,6 +65,7 @@
     - The similarity of each chord in the individual to the previous two chords in the individual. Where we:
       - Punish the individual for having more than two consecutive chords that are the same.
       - Reward the individual for having exactly two consecutive chords that are the same.
+
 - **Selection technique:**
   - **Selection method:** Tournament.
   - The selection phase selects half of the population to remain, the other half we remove from the population.
@@ -124,17 +120,17 @@
   - On average the generation times for each input is:
     - Input 1:
       - Population size = 1024
-      - Length of individual = 29 chord
+      - Length of individual = 29 chords
       - Number of generations = 5000
       - **Generation time = 20 minutes**
     - Input 2:
       - Population size = 1024
-      - Length of individual = 32 chord
+      - Length of individual = 32 chords
       - Number of generations = 5000
       - **Generation time = 23 minutes**
     - Input 3:
       - Population size = 1024
-      - Length of individual = 44 chord
+      - Length of individual = 44 chords
       - Number of generations = 5000
       - **Generation time = 36 minutes**
 
