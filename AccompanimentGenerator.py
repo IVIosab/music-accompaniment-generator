@@ -782,6 +782,6 @@ def main(input_file_name, output_file_name):
 
 
 if __name__ == '__main__':
-    main("input1.mid", "MosabMohamedOutput1.mid")
-    main("input2.mid", "MosabMohamedOutput2.mid")
-    main("input3.mid", "MosabMohamedOutput3.mid")
+    main("input1.mid", "Output1.mid")
+    main("input2.mid", "Output2.mid")
+    main("input3.mid", "Output3.mid")
